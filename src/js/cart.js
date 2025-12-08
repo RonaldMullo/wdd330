@@ -101,6 +101,11 @@ export function renderCartContents() {
 
   attachQtyListeners();
   calculateAndDisplayTotal(cartItems);
+  function getCart() {
+  const cart = JSON.parse(localStorage.getItem('so-cart')) || [];
+  return cart;
+}
+
 }
 
 renderCartContents();

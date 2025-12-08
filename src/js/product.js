@@ -14,6 +14,21 @@ function saveCart(cart) {
 
 function addProductToCart(product) {
   const cart = getCart();
+  function renderComments(productId) {
+  const comments = getComments(productId);
+  const list = document.querySelector('#comments-list');
+  list.innerHTML = '';
+
+  comments.forEach(comment => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <strong>${comment.name}</strong> <em>(${comment.date})</em><br>
+      ${comment.text}
+    `;
+    list.appendChild(li);
+  });
+}
+
 
   
   const existing = cart.find((item) => item.Id === product.Id);
